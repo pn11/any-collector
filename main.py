@@ -42,8 +42,6 @@ def main(page: ft.Page):
             watermark = build_watermark(exif)
             images.controls.append(ft.Text(watermark))
 
-
-
         page.update()
 
     pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
@@ -68,5 +66,6 @@ def main(page: ft.Page):
         )
     )
     page.add(images)
+
 
 ft.app(target=main)
