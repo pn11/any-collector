@@ -1,24 +1,8 @@
 import flet as ft
-from exif import Image
 
 
 def main(page: ft.Page):
-    def get_exif(image_path: str):
-        with open(image_path, 'rb') as image_file:
-            exif_im = Image(image_file)
-        return exif_im
-    
-    def build_watermark(exif_im: Image):
-        if not exif_im.has_exif:
-            return ""
-        print(dir(exif_im))
-        print(exif_im.list_all())
 
-        return f"{exif_im.datetime}\nCamera: {exif_im.make} {exif_im.model}\n{exif_im.focal_length}mm f/{exif_im.f_number} {exif_im.exposure_time}s ISO{exif_im.photographic_sensitivity}\nLens:  {exif_im.lens_model}"
-
-        # {exif_im.lens_make} {exif_im.shutter_speed_value} {exif_im.aperture_value} {exif_im.brightness_value}
-
-        #return f'{exif_im.datetime}{exif_dict["Zeroth"]["DateTime"]}\nCamera: {exif_dict["Make"]} {exif_dict["Model"]}\nLens: {exif_dict["LensMake"]} {exif_dict["LensModel"]}\n{exif_dict["ShutterSpeedValue"], {exif_dict["ApertureValue"]}}'
 
     def pick_files_result(e: ft.FilePickerResultEvent):
         selected_files.value = (
